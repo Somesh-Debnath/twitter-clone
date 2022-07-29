@@ -59,10 +59,10 @@ function Input() {
      setShowEmojis(false)
     }
 
-    const addImageToPost=(r)=>{
+    const addImageToPost=(e)=>{
        const reader=new FileReader();
-       if(r.target.files[0]){
-        reader.readAsDataURL(r.target.files[0]);
+       if(e.target.files[0]){
+        reader.readAsDataURL(e.target.files[0]);
        }
 
        reader.onload=(readerEvent)=>{
@@ -70,10 +70,10 @@ function Input() {
        }
     }
     
-  const addEmoji = (e: { unified: string; }) => {
+  const addEmoji = (e) => {
     let sym = e.unified.split("-");
-    let codesArray: string[] = [];
-    sym.forEach((el: string) => codesArray.push("0x" + el));
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
     setInput(input + emoji);
   };
